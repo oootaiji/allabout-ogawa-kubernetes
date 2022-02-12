@@ -1,0 +1,8 @@
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: cert
+  namespace: allabout-ogawa-kubernetes
+spec:
+  domains:
+    - kubernetes.ogawa.allabout.oootaiji.com
