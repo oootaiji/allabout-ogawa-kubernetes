@@ -80,11 +80,10 @@
 - ingress.yamlをapply
 
 ### 稼働確認
-- 確認
 
-    ```
-    https://kubernetes.ogawa.allabout.oootaiji.com/
-    ```
+```
+https://kubernetes.ogawa.allabout.oootaiji.com/
+```
 
 
 ## アプリについて
