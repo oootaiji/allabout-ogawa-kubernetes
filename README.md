@@ -90,7 +90,7 @@
 ## アプリについて
 - アプリは「gcr.io/google-samples/hello-app:1.0」を利用
 - cert.yaml: 証明書の設定
-- deployment.yaml: podの仕様
+- deployment.yaml: デプロイの仕様
 - service.yaml: Serviceの仕様
 - ingress.yaml: Ingressの仕様
 - namespace.yaml: namespaceを作成するためのyaml
