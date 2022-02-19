@@ -39,21 +39,17 @@ dockerのスケールや冗長化やデプロイ自動化は大変で、以下�
         - ノードプール: 複数zoneのノードまとまり
             - ノード: GCEインスタンス
 - ServiceとIngress: podとそれに関連する一連の仕様
-    - Ingress: L7ロードバランサで、HTTP(S)トラフィックのルールの集まり
+    - Ingress: L7ロードバランサで、HTTP(S)などのトラフィックのルールの集まり
     - Service: 監視、負荷分散、エンドポイントを含む一連の管理
         - pod: デプロイされたコンテナ
 
-
-### GKEで使う管理ファイルについて(マニフェストファイル)
-- development.yaml: podの仕様を定義
-- service.yaml: serviceの仕様を定義
-
-### Kubernetesの種類
+### KubernetesのServiceの種類
 - LoadBalancer: L4のロードバランサー
-- Ingress: L7のロードバランサー
 - NodePort: Portを開いているノードを作成する。そのノードからサービスへフォーワードしてくれる
     - 1ポート1サービス
     - 開けれるポートは、30000–32767
+    - Ingressを使う場合は、TypeはNodePortにする
+- Ingress: L7のロードバランサー
 
 
 ## 文献

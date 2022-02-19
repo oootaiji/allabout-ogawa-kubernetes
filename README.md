@@ -59,20 +59,20 @@
     ```
 
 ## 手順
-### クラスタ設定
+### クラスターの設定
 - kubernetesクラスタ作成
 
     ```
-    gcloud container clusters create allabout-ogawa-kubernetes-cluster --machine-type=e2-micro --num-nodes=1 --region=asia-northeast1
+    gcloud container clusters create <クラスター名> --machine-type=e2-micro --num-nodes=1 --region=asia-northeast1
     ```
 
-- クラスタの認証情報を取得
+- クラスタの認証情報を取得 (このコマンドで、以下で指定したクラスターにデプロイされるようになる)
 
     ```
-    gcloud container clusters get-credentials allabout-ogawa-kubernetes-cluster
+    gcloud container clusters get-credentials <クラスター名>
     ```
 
-### デプロイ (マニフェスト利用するver)
+### クラスターにデプロイ (マニフェスト利用するver)
 - namespace.yamlをapplay
 - cert.yamlをapply (プロビジョニングには時間がかかる)
 - deployment.yamlをapply
