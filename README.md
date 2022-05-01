@@ -95,9 +95,10 @@ https://kubernetes.ogawa.allabout.oootaiji.com/
 - namespace.yaml: namespaceを作成するためのyaml
 
 
-## 文献
+## 参考文献
 - [GKEデプロイ](https://qiita.com/8yoshiyoshi/items/99a16843e081979ff627)
 - [kubectlインストール](https://kubernetes.io/ja/docs/tasks/tools/install-kubectl/#homebrewを使用してmacosへインストールする)
 - [gcloudインストール](https://cloud.google.com/sdk/docs/quickstart)
 - [Kubernetes Engine APIの有効化](https://cloud.google.com/kubernetes-engine/docs/quickstart)
 - [SSL化](https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs)
+- [GKEにhello worldをデプロイ](https://medium.com/@gorlemkun/gkeにhelloとだけ言わせたい-google-kubernetes-engineに無をデプロイする-7c8feea1921c)
