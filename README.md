@@ -6,13 +6,17 @@
 
 
 ## 要件を定義
-- アプリは既存のものを使う (Googleで公開されているレジストリを使う)
-- 独自ドメインで公開
+### インフラ
 - SSL証明書を設定
 - ロードバランサを設定
 - 複数zoneの冗長構成 (regionは1つでOK)
 - 自動スケールなし (手動スケールの方法は調べておく)
 - VPCは組まない (商用だとほぼ必須だが、目的からそれるため)
+
+### アプリ
+- 独自ドメインで公開
+- アプリは既存のものを使う (Googleで公開されているレジストリを使う)
+    - 「gcr.io/google-samples/hello-app:1.0」を利用
 
 
 ## 準備
@@ -63,13 +67,15 @@
 - kubernetesクラスタ作成
 
     ```
-    gcloud container clusters create <クラスター名> --machine-type=e2-micro --num-nodes=1 --region=asia-northeast1
+    cluster_name=allabout-ogawa-kubernetes
+    gcloud container clusters create $cluster_name --machine-type=e2-micro --num-nodes=1 --region=us-west1 --zone=us-west1-a
     ```
 
 - クラスタの認証情報を取得 (このコマンドで、以下で指定したクラスターにデプロイされるようになる)
 
     ```
-    gcloud container clusters get-credentials <クラスター名>
+    cluster_name=allabout-ogawa-kubernetes
+    gcloud container clusters get-credentials $cluster_name
     ```
 
 ### クラスターにデプロイ (マニフェスト利用するver)
@@ -79,6 +85,14 @@
 - service.yamlをapply
 - ingress.yamlをapply
 
+```
+kubectl apply -f namespace.yaml
+kubectl apply -f cert.yaml
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl apply -f ingress.yaml
+```
+
 ### 稼働確認
 
 ```
@@ -86,8 +100,7 @@ https://kubernetes.ogawa.allabout.oootaiji.com/
 ```
 
 
-## アプリについて
-- アプリは「gcr.io/google-samples/hello-app:1.0」を利用
+## GKEのmanifestファイルについて
 - cert.yaml: 証明書の設定
 - deployment.yaml: デプロイの仕様
 - service.yaml: Serviceの仕様
