@@ -68,7 +68,7 @@
 
     ```
     cluster_name=allabout-ogawa-kubernetes
-    gcloud container clusters create $cluster_name --machine-type=e2-micro --num-nodes=1 --region=us-west1 --zone=us-west1-a
+    gcloud container clusters create $cluster_name --machine-type=e2-micro --num-nodes=1 --region=us-west1
     ```
 
 - クラスタの認証情報を取得 (このコマンドで、以下で指定したクラスターにデプロイされるようになる)
