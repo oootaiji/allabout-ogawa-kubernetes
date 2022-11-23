@@ -46,20 +46,21 @@
 - 固定IP作成
 
     ```
-    gcloud compute addresses create <固定IP名> --global
+    solid_ip_name=allabout-ogawa-kubernetes-ip
+    gcloud compute addresses create $solid_ip_name --global
     ```
 
 - 固定IP確認
 
     ```
-    gcloud compute addresses describe <固定IP名> --global
+    solid_ip_name=allabout-ogawa-kubernetes-ip
+    gcloud compute addresses describe $solid_ip_name --global
     ```
 
 - DNSの設定
 
     ```
-    独自ドメインは持っているものを使う
-    上記のIPをAレコードで設定しておく
+    kubernetes.ogawa.allabout.oootaiji.comへ上記のIPをAレコードで追加
     ```
 
 ## 手順
@@ -85,13 +86,13 @@
 - service.yamlをapply
 - ingress.yamlをapply
 
-```
-kubectl apply -f namespace.yaml
-kubectl apply -f cert.yaml
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
-kubectl apply -f ingress.yaml
-```
+    ```
+    kubectl apply -f namespace.yaml
+    kubectl apply -f cert.yaml
+    kubectl apply -f deployment.yaml
+    kubectl apply -f service.yaml
+    kubectl apply -f ingress.yaml
+    ```
 
 ### 稼働確認
 
